@@ -1,0 +1,19 @@
+/*
+# [LeetCode] 181. Employees Earning More Than Their Managers
+# https://leetcode.com/problems/employees-earning-more-than-their-managers/
+# employees who earn more than their managers.
+*/
+
+SELECT EMP.Name as Employee
+FROM Employee EMP, Employee MANAGER
+WHERE EMP.ManagerId = MANAGER.Id
+AND EMP.Salary > MANAGER.Salary
+;
+
+/* SOLUTION: JOIN is a more common and efficient way */
+SELECT
+     a.NAME AS Employee
+FROM Employee AS a JOIN Employee AS b
+     ON a.ManagerId = b.Id
+     AND a.Salary > b.Salary
+;
